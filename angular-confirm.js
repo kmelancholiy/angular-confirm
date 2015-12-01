@@ -4,7 +4,7 @@
  * @version v1.2.1 - 2015-11-18
  * @license Apache
  */
-angular.module('angular-confirm', ['ui.bootstrap.modal'])
+angular.module('angular-confirm', ['ui.bootstrap.modal', 'pascalprecht.translate'])
   .controller('ConfirmModalController', function ($scope, $uibModalInstance, data) {
     $scope.data = angular.copy(data);
 
@@ -18,11 +18,11 @@ angular.module('angular-confirm', ['ui.bootstrap.modal'])
 
   })
   .value('$confirmModalDefaults', {
-    template: '<div class="modal-header"><h3 class="modal-title">{{data.title}}</h3></div>' +
-    '<div class="modal-body">{{data.text}}</div>' +
+    template: '<div class="modal-header"><h3 class="modal-title" translate="{{data.title}}"></h3></div>' +
+    '<div class="modal-body" translate="{{data.text}}"></div>' +
     '<div class="modal-footer">' +
-    '<button class="btn btn-primary" ng-click="ok()">{{data.ok}}</button>' +
-    '<button class="btn btn-default" ng-click="cancel()">{{data.cancel}}</button>' +
+    '<button class="btn btn-primary" ng-click="ok()" translate="{{data.ok}}"></button>' +
+    '<button class="btn btn-default" ng-click="cancel()" translate="{{data.cancel}}"></button>' +
     '</div>',
     controller: 'ConfirmModalController',
     defaultLabels: {
